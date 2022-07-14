@@ -5,15 +5,15 @@
 
 # Flow options:
 # -------------------------------------------
- set synthesis_tool = yosys
- set placement_tool = graywolf
- set sta_tool = vesta
- set router_tool = qrouter
- set migrate_tool = magic_db
- set lvs_tool = netgen_lvs
- set drc_tool = magic_drc
- set gds_tool = magic_gds
- set display_tool = magic_view
+set synthesis_tool = yosys
+set placement_tool = graywolf
+set sta_tool = vesta
+set router_tool = qrouter
+set migrate_tool = magic_db
+set lvs_tool = netgen_lvs
+set drc_tool = magic_drc
+set gds_tool = magic_gds
+set display_tool = magic_view
 
 # Synthesis command options:
 # -------------------------------------------
