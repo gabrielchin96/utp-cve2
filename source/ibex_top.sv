@@ -442,7 +442,7 @@ module ibex_top import ibex_pkg::*; #(
     always_ff @(posedge clk_i or negedge rst_ni) begin
       if (!rst_ni) begin
         scramble_key_valid_q <= 1'b1;
-        scramble_req_q       <= '0;
+        scramble_req_q       <= 1'b0; // from '0
       end else begin
         scramble_key_valid_q <= scramble_key_valid_d;
         scramble_req_q       <= scramble_req_d;
@@ -463,8 +463,8 @@ module ibex_top import ibex_pkg::*; #(
     assign scramble_req_d       = 1'b0;
     assign scramble_req_q       = 1'b0;
     assign scramble_req_o       = 1'b0;
-    assign scramble_key_q       = '0;
-    assign scramble_nonce_q     = '0;
+    assign scramble_key_q       = 1'b0; // from '0
+    assign scramble_nonce_q     = 1'b0; // from '0
     assign scramble_key_valid_q = 1'b1;
     assign scramble_key_valid_d = 1'b1;
   end
@@ -558,8 +558,8 @@ module ibex_top import ibex_pkg::*; #(
                                scramble_key_valid_d & (|scramble_nonce_q) &
                                (|NumAddrScrRounds);
 
-    assign ic_tag_rdata      = '{default:'b0};
-    assign ic_data_rdata     = '{default:'b0};
+    assign ic_tag_rdata      = '{default:1'b0};
+    assign ic_data_rdata     = '{default:1'b0};
 
   end
 
@@ -928,7 +928,7 @@ module ibex_top import ibex_pkg::*; #(
     assign lockstep_alert_major_internal = 1'b0;
     assign lockstep_alert_major_bus      = 1'b0;
     assign lockstep_alert_minor          = 1'b0;
-    assign data_wdata_intg_o             = 'b0;
+    assign data_wdata_intg_o             = 1'b0; // from '0
     logic unused_scan, unused_intg;
     assign unused_scan = scan_rst_ni;
     assign unused_intg = |{instr_rdata_intg_i, data_rdata_intg_i};
